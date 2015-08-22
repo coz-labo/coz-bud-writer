@@ -1,6 +1,6 @@
 {
   "name": "coz-bud-writer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bud writer for coz.",
   "main": "lib",
   "scripts": {
