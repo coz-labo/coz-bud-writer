@@ -4,14 +4,14 @@
  * @version {{pkg.version}}
  */
 
-"use strict";
+'use strict'
 
+const BudWriter = require('./bud_writer')
 
-var BudWriter = require('./bud_writer');
 function budWriter(config){
-    return new BudWriter(config);
+  return new BudWriter(config)
 }
 
-budWriter.budWriter = budWriter;
+budWriter.budWriter = budWriter
 
-module.exports = budWriter;
+module.exports = budWriter

@@ -1,26 +1,26 @@
 /**
  * Test case for renderBudOut.
- * Runs with nodeunit.
+ * Runs with mocha.
  */
+'use strict'
+const assert = require('assert')
+const co = require('co')
+var renderBudOut = require('../lib/render_bud_out.js')
 
-var renderBudOut = require('../lib/render_bud_out.js');
+describe('renderBudOut', function () {
+  it('Handle tmpl error.', () => co(function * () {
+    let bud = {
+      path: 'hoge',
+      tmpl () {
+        throw new Error('foo')
+      }
+    }
+    try {
+      yield renderBudOut(bud)
+    } catch (e) {
+      assert.ok(e)
+    }
+  }))
+})
 
-exports.setUp = function(done) {
-    done();
-};
-
-exports.tearDown = function(done) {
-    done();
-};
-
-exports['Handle tmpl error.'] = function (test) {
-    var bud = {
-        tmpl: function () {
-            throw new Error('foo');
-        }
-    };
-    renderBudOut(bud, function (err) {
-        test.ok(!!err);
-        test.done();
-    });
-};
+/* global describe, it */

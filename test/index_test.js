@@ -2,12 +2,16 @@
  * Test for index.js
  */
 
-"use strict";
+'use strict'
+const assert = require('assert')
+const co = require('co')
+const index = require('../lib/index.js')
 
-var index = require('../lib/index.js');
+describe('index', function () {
+  it('Eval index.', () => co(function * () {
+    let writer = index({})
+    assert.ok(writer)
+  }))
+})
 
-exports['Eval index.'] = function(test){
-    var writer = index({});
-    test.ok(writer);
-    test.done();
-};
+/* global describe, it */

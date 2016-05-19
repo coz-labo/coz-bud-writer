@@ -1,31 +1,29 @@
 /**
  * Test case for budWriter.
- * Runs with nodeunit.
+ * Runs with mocha.
  */
+'use strict'
+const assert = require('assert')
+const co = require('co')
+const fs = require('fs')
 
-var BudWriter = require('../lib/bud_writer.js');
+const BudWriter = require('../lib/bud_writer.js')
 
-exports.setUp = function(done) {
-    done();
-};
+describe('budWriter', function () {
+  it('Write a bud.', () => co(function * () {
+    let bud = {
+      tmpl () {
+        return 'foo'
+      },
+      done: false,
+      mkdirp: true,
+      path: `${__dirname}/../tmp/bar/baz/bud_written.txt`
+    }
+    yield new BudWriter().write(bud)
+    assert.ok(
+      fs.existsSync(`${__dirname}/../tmp/bar/baz/bud_written.txt`)
+    )
+  }))
+})
 
-exports.tearDown = function(done) {
-    done();
-};
-
-exports['Write a bud.'] = function (test) {
-    var bud = {
-        tmpl: function () {
-            return 'foo'
-        },
-        done: false,
-        mkdirp: true,
-        path: __dirname + '/../tmp/bar/baz/bud_written.txt'
-    };
-    new BudWriter().write(bud, function (err, bud) {
-        test.ifError(err);
-        test.ok(bud);
-        test.done();
-    });
-};
-
+/* global describe, it */

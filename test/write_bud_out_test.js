@@ -1,24 +1,24 @@
 /**
  * Test case for writeBudOut.
- * Runs with nodeunit.
+ * Runs with mocha.
  */
+'use strict'
+const assert = require('assert')
+const fs = require('fs')
+const co = require('co')
+const writeBudOut = require('../lib/write_bud_out.js')
 
-var writeBudOut = require('../lib/write_bud_out.js');
+describe('writeBudOut', function () {
+  it('Do write.', () => co(function * () {
+    yield writeBudOut({
+      mode: '644',
+      mkdirp: true,
+      path: `${__dirname}/../tmp/foo.html`
+    })
+    assert.ok(
+      fs.existsSync(`${__dirname}/../tmp/foo.html`)
+    )
+  }))
+})
 
-exports.setUp = function(done) {
-    done();
-};
-
-exports.tearDown = function(done) {
-    done();
-};
-
-exports['Do write.'] = function (test) {
-    writeBudOut({
-        mode: '644',
-        path: __dirname + '/../tmp/foo.html'
-    }, function (err) {
-        test.ifError(err);
-        test.done();
-    });
-};
+/* global describe, it */
