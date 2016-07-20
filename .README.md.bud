@@ -9,7 +9,7 @@ const pkg = require('./package.json')
 
 module.exports = apeTmpl.readmeMdBud({
   pkg: pkg,
-  repo: 'coz-repo/' + pkg.name,
+  repo: 'coz-labo/' + pkg.name,
   sections: 'doc/guides/*.md.hbs',
   badges: {
     travis: true,
