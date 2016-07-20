@@ -1,13 +1,11 @@
 {
   "name": "coz-bud-writer",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Bud writer for coz.",
   "main": "lib",
   "scripts": {
-    "build": "./ci/build.js",
     "test": "./ci/test.js",
-    "cover": "./ci/cover.js",
-    "report": "./ci/report.js"
+    "prepublish": "./ci/build.js"
   },
   "repository": "coz-labo/coz-bud-writer",
   "keywords": [
@@ -25,21 +23,18 @@
   },
   "homepage": "https://github.com/coz-labo/coz-bud-writer#readme",
   "dependencies": {
-    "argx": "^2.0.2",
-    "async": "^2.0.0",
     "co": "^4.6.0",
     "coz-bud": "^3.0.2",
     "writeout": "^2.0.6"
   },
   "devDependencies": {
-    "ape-covering": "^3.0.3",
+    "amocha": "^1.0.6",
     "ape-releasing": "^4.0.2",
     "ape-reporting": "^3.0.1",
     "ape-tasking": "^4.0.7",
-    "ape-testing": "^4.0.1",
-    "ape-tmpl": "^5.0.13",
+    "ape-tmpl": "^5.0.14",
     "ape-updating": "^4.0.4",
-    "coz": "^6.0.13",
+    "coz": "^6.0.14",
     "injectmock": "^2.0.0",
     "mkdirp": "^0.5.1"
   },

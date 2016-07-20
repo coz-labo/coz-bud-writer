@@ -8,11 +8,9 @@
 
 process.chdir(`${__dirname}/..`)
 
-var apeTasking = require('ape-tasking'),
-    apeUpdating = require('ape-updating')
+const { runTasks } = require('ape-tasking')
+const { updateDependencies } = require('ape-updating')
 
-apeTasking.runTasks('update', [
-    function renderBud(callback) {
-        apeUpdating.updateDependencies({}, callback)
-    }
+runTasks('update', [
+  () => updateDependencies({})
 ], true)
