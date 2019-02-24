@@ -4,23 +4,22 @@
  */
 'use strict'
 const assert = require('assert')
-const co = require('co')
 var renderBudOut = require('../lib/render_bud_out.js')
 
 describe('renderBudOut', function () {
-  it('Handle tmpl error.', () => co(function * () {
+  it('Handle tmpl error.', async () => {
     let bud = {
       path: 'hoge',
-      tmpl () {
+      tmpl() {
         throw new Error('foo')
       }
     }
     try {
-      yield renderBudOut(bud)
+      await renderBudOut(bud)
     } catch (e) {
       assert.ok(e)
     }
-  }))
+  })
 })
 
 /* global describe, it */
