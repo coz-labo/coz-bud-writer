@@ -27,7 +27,7 @@
     "writeout": "^2.3.0"
   },
   "devDependencies": {
-    "amocha": "^5.0.2",
+    "amocha": "^7.1.2",
     "ape-releasing": "^5.0.7",
     "ape-tasking": "^4.0.12",
     "ape-tmpl": "^6.0.14",
